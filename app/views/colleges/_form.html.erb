@@ -1,0 +1,24 @@
+<%= simple_form_for @college  do |f| %>
+  <% if @college.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@college.errors.count, "error") %> prohibited this college from being saved:</h2>
+
+      <ul>
+      <% @college.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address, as: :text %>
+    <%= f.input :phno %>
+    <%= f.input :website %><br>
+  
+  <div class="form-actions">
+    <%= f.button :submit, "Create" %>
+    <%= link_to 'Back', colleges_path, class: "btn btn-default" %>
+  </div>
+<% end %>
+
